@@ -30,94 +30,117 @@ function isActive(href: string): boolean {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={siteData.ogImage} />
+    <meta property="og:image" content="/assets/illustrations/hero-risograph.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <link rel="apple-touch-icon" href="/assets/logo@4x.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <!-- Reusable "pen wobble" filter for the hand-drawn sketches -->
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-      <filter id="pen">
-        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" />
-        <feDisplacementMap in="SourceGraphic" scale="2.2" />
-      </filter>
-    </svg>
-
-    <div class="topbar">
-      <div class="wrap">
-        <a class="wordmark" href="/">
-          <svg viewBox="0 0 26 26" aria-hidden="true">
-            <circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.6" />
-            <path
-              d="M8 13.5l3.3 3.3L18.5 9"
-              fill="none"
-              stroke="var(--blue)"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          {siteData.shortTitle}
-          <small>{siteData.eventBadge}</small>
-        </a>
-        <a class="chi" href={siteData.conference.url} target="_blank" rel="noopener noreferrer">
-          {siteData.conference.name} ↗
-        </a>
-      </div>
+    <!-- 6-color risograph pigment ribbon derived from logo.svg -->
+    <div class="pigment-ribbon" aria-hidden="true">
+      <span style="background:var(--coral)"></span>
+      <span style="background:var(--tangerine)"></span>
+      <span style="background:var(--gold)"></span>
+      <span style="background:var(--emerald)"></span>
+      <span style="background:var(--cerulean)"></span>
+      <span style="background:var(--indigo)"></span>
     </div>
 
-    <nav class="tabs" aria-label="Primary navigation">
-      <div class="wrap">
-        <ul>
-          {
-            siteData.navigation.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  aria-current={isActive(item.href) ? 'page' : undefined}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+    <header class="site-header">
+      <div class="wrap site-header-inner">
+        <a class="brand" href="/">
+          <img
+            class="brand-mark"
+            src="/assets/logo.svg"
+            alt=""
+            width="38"
+            height="38"
+          />
+          <span class="brand-text">
+            <strong>{siteData.title}</strong>
+            <small>{siteData.eventBadge} · {siteData.conference.location}</small>
+          </span>
+        </a>
+
+        <a
+          class="chi-pill"
+          href={siteData.conference.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>{siteData.conference.name}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
-    </nav>
+
+      <nav class="nav-strip" aria-label="Primary navigation">
+        <div class="wrap">
+          <ul>
+            {
+              siteData.navigation.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </nav>
+    </header>
 
     <main id="main-content">
       <slot />
     </main>
 
-    <footer>
-      <div class="wrap">
-        <div>
-          <strong style="color:var(--ink)">{siteData.title}</strong> · a workshop at{' '}
-          <a href={siteData.conference.url} target="_blank" rel="noopener noreferrer">
-            {siteData.conference.name}
-          </a>{' '}
-          · {siteData.conference.location}
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <img
+            src="/assets/logo-bw.svg"
+            alt=""
+            width="34"
+            height="34"
+            class="footer-logo"
+          />
+          <div>
+            <strong>{siteData.title}</strong>
+            <div class="footer-sub">
+              A workshop at{' '}
+              <a href={siteData.conference.url} target="_blank" rel="noopener noreferrer">
+                {siteData.conference.name}
+              </a>{' '}
+              · {siteData.conference.dates} · {siteData.conference.location}
+            </div>
+          </div>
         </div>
-        <div class="footer-links">
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/">Overview</a>
           <a href="/cfp">Call for Participation</a>
           <a href="/programme">Programme</a>
-          <a href="/contact">Contact organizers</a>
-          <span>
-            Lead:{' '}
-            <a href={`mailto:${siteData.leadContact.email}`}>{siteData.leadContact.name}</a>
-          </span>
-        </div>
+          <a href="/organizers">Organizers</a>
+          <a href="/venue-resources">Venue &amp; Resources</a>
+          <a href="/contact">Contact</a>
+        </nav>
       </div>
     </footer>
   </body>

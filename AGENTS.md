@@ -21,6 +21,8 @@ All workshop text, dates, organizers, schedule entries, reading list items, and 
 | Contact page intro, inquiry topic dropdown options, sidebar notes | `src/data/contact.yaml` |
 
 ### Static Media Assets
+- Workshop logos: `public/assets/logo.svg`, `public/assets/logo-type.svg`, `public/assets/logo-bw.svg` (and `.png` / `@4x.png` exports)
+- Risograph illustrations: `public/assets/illustrations/hero-risograph.jpg`, `riso-cfp.jpg`, `riso-workshop.jpg`, `riso-pittsburgh.jpg`
 - Proposal figures: `public/assets/fig1-pipeline.png`, `public/assets/fig2-activities.png`
 - Organizer headshots (square `.jpg`, ≥ 300×300 px): `public/assets/organizers/<slug>.jpg`
   - If a photo is omitted or missing, the site automatically falls back to colored initials.
@@ -59,7 +61,7 @@ Edit `src/data/programme.yaml`:
 - Remove `badge: Speaker TBA` from the matching row under `schedule:`.
 
 ### Update Colors or Typography
-All visual tokens live in `:root` (and dark mode `@media (prefers-color-scheme: dark)`) at the top of `src/styles/global.css`. Preserve WCAG AA contrast and ensure provenance states (`valid`, `partial`, `missing`, `conflict`) never communicate meaning through color alone (always keep their distinct icons `✓`, `◐`, `○`, `≠` and text labels).
+This site intentionally uses a **light-theme-only** warm risograph print + dot-matrix aesthetic derived from the 6 pigments in `public/assets/logo.svg` (`#dc5847`, `#f0983d`, `#dbaf36`, `#409268`, `#3380d8`, `#3b4198`). All visual tokens live in `:root` at the top of `src/styles/global.css`. Preserve WCAG AA contrast and ensure provenance states (`valid`, `partial`, `missing`, `conflict`) never communicate meaning through color alone (always keep their distinct icons `✓`, `◐`, `○`, `≠` and text labels). Keep individual organizer names out of the global footer.
 
 ---
 

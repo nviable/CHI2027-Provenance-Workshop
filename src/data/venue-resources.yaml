@@ -11,15 +11,17 @@ lede: >-
 venue:
   kicker: Venue
   heading: Pittsburgh, the city of bridges
-  photoUrl: >-
-    https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Pittsburgh_skyline_from_West_End_Overlook%2C_2021-11-17%2C_03.jpg/1920px-Pittsburgh_skyline_from_West_End_Overlook%2C_2021-11-17%2C_03.jpg
-  photoAlt: Pittsburgh skyline and its yellow bridges seen from the West End Overlook
+  photoUrl: /assets/illustrations/riso-pittsburgh.jpg
+  photoAlt: >-
+    Risograph print illustration of Pittsburgh's iconic yellow suspension
+    bridges spanning the rivers beneath halftone clouds and downtown skyline
   photoCredit: >-
-    Photo: Pittsburgh skyline from West End Overlook, by Cbaile19, CC0, via
-    Wikimedia Commons.
+    Workshop risograph artwork inspired by Pittsburgh's confluence and iconic
+    yellow bridges.
   paragraphs:
     - >-
-      The workshop is part of ACM CHI 2027, 10–14 May 2027. A fitting place to
+      The workshop is part of ACM CHI 2027, 10–14 May 2027, at the David L.
+      Lawrence Convention Center in downtown Pittsburgh — a fitting place to
       build bridges between provenance infrastructure and the people who meet
       it.
     - >-

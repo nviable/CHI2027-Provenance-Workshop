@@ -12,11 +12,20 @@ const isEmbedMode =
   description="Submit a 2–4 page position paper or 1-page practice statement to the Beyond the Provenance Pin workshop at ACM CHI 2027."
   currentPath="/cfp"
 >
-  <header class="page-header">
-    <div class="wrap">
-      <div class="kicker">{cfpData.kicker}</div>
-      <h1>{cfpData.heading}</h1>
-      <p class="lede">{cfpData.lede}</p>
+  <header class="page-header dot-matrix">
+    <div class="wrap page-header-split">
+      <div>
+        <div class="kicker">{cfpData.kicker}</div>
+        <h1>{cfpData.heading}</h1>
+        <p class="lede">{cfpData.lede}</p>
+      </div>
+      <img
+        class="page-spot-art riso-art"
+        src="/assets/illustrations/riso-cfp.jpg"
+        alt="Risograph spot illustration of overlapping position papers, a fountain pen, and a magnifying glass"
+        width="1200"
+        height="896"
+      />
     </div>
   </header>
 

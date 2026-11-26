@@ -13,7 +13,7 @@ const rightReadings = readings.slice(splitIndex);
   description="Pittsburgh venue details, accessibility commitments, reading list, and related provenance venues for ACM CHI 2027."
   currentPath="/venue-resources"
 >
-  <header class="page-header">
+  <header class="page-header dot-matrix">
     <div class="wrap">
       <div class="kicker">{venueResourcesData.kicker}</div>
       <h1>{venueResourcesData.heading}</h1>
@@ -23,12 +23,14 @@ const rightReadings = readings.slice(splitIndex);
 
   <section id="venue">
     <div class="wrap">
-      <div
-        class="venue-photo"
-        role="img"
-        aria-label={venueResourcesData.venue.photoAlt}
-        style={`background-image:url("${venueResourcesData.venue.photoUrl}")`}
-      />
+      <figure class="venue-banner-frame" style="margin-top:0">
+        <img
+          src={venueResourcesData.venue.photoUrl}
+          alt={venueResourcesData.venue.photoAlt}
+          width="1376"
+          height="768"
+        />
+      </figure>
 
       <div class="grid g2" style="gap:52px;align-items:start">
         <div>
@@ -112,7 +114,12 @@ const rightReadings = readings.slice(splitIndex);
           <div class="venues">
             {
               venueResourcesData.resources.relatedVenues.map((venue) => (
-                <a href={venue.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  class="venue-chip"
+                  href={venue.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {venue.label} ↗
                 </a>
               ))

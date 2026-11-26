@@ -37,6 +37,9 @@ export default function FigureGallery({ figures }: FigureGalleryProps) {
               aria-label={`Enlarge ${fig.label} ${fig.caption}`}
             >
               <img src={fig.src} alt={fig.alt} loading="lazy" />
+              <span className="fig-zoom-tag" aria-hidden="true">
+                Inspect ↗
+              </span>
             </button>
             <figcaption>
               <b>{fig.label}</b> {fig.caption}

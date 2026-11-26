@@ -13,7 +13,7 @@ This is the **Beyond the Provenance Pin (ACM CHI 2027 Workshop)** website, built
    - `src/data/contact.yaml` — contact page copy and inquiry topic options
 2. **Keep YAML valid and schema-compliant** — All files in `src/data/*.yaml` are validated by Zod schemas in `src/lib/content.ts`. If you introduce a new YAML property, update the schema in `src/lib/content.ts` as well.
 3. **Never commit secrets or private organizer mailing lists** — Contact form forwarding uses Cloudflare Worker secrets (`RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_RECIPIENTS`) read via `import { env } from 'cloudflare:workers'` in `src/pages/api/contact.ts`.
-4. **Preserve accessibility and the editorial theme** — Keep styles in `src/styles/global.css`, maintain light & dark mode support, and never rely on color alone for provenance state indicators (`✓`, `◐`, `○`, `≠`).
+4. **Preserve accessibility and the light-theme risograph design** — Keep styles in `src/styles/global.css` (light-theme only, using the 6 brand pigments from `public/assets/logo.svg`), keep individual organizer names out of the footer, and never rely on color alone for provenance state indicators (`✓`, `◐`, `○`, `≠`).
 5. **Verify before finishing** — Run `npm run check` and `npm run build` to confirm all YAML files, TypeScript types, and the Cloudflare Worker bundle build cleanly.
 
 See `AGENTS.md` for full recipes (activating embedded submission forms, publishing accepted papers, adding speakers).

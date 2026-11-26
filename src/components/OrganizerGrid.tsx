@@ -1,11 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type CSSProperties } from 'react';
 import type { OrganizerPerson } from '../lib/content';
 
 interface OrganizerGridProps {
   people: OrganizerPerson[];
 }
 
-const AVATAR_COLORS = ['#0067b8', '#107c41', '#5c2d91', '#008575', '#c4314b', '#a86b00'];
+// 6 brand pigments from public/assets/logo.svg
+const BRAND_RINGS = ['#3b4198', '#dc5847', '#f0983d', '#409268', '#3380d8', '#dbaf36'];
 
 function getInitials(name: string): string {
   const parts = name.split(' ').filter((part) => !part.endsWith('.'));
@@ -17,11 +18,14 @@ function getInitials(name: string): string {
 function OrganizerCard({ person, index }: { person: OrganizerPerson; index: number }) {
   const [imgFailed, setImgFailed] = useState(false);
   const photoPath = person.photo ? `/assets/organizers/${person.photo}` : null;
-  const bgColor = AVATAR_COLORS[index % AVATAR_COLORS.length];
+  const ringColor = BRAND_RINGS[index % BRAND_RINGS.length];
 
   return (
     <article className={`person${person.lead ? ' lead' : ''}`}>
-      <div className="ph" style={{ backgroundColor: bgColor }}>
+      <div
+        className="ph"
+        style={{ backgroundColor: ringColor, '--ring-color': ringColor } as CSSProperties}
+      >
         {photoPath && !imgFailed ? (
           <img
             src={photoPath}

@@ -33,7 +33,7 @@ export default function ProvenanceDemo({
 
     const id = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % states.length);
-    }, 4000);
+    }, 4200);
 
     return () => window.clearInterval(id);
   }, [autoPlay, states.length]);
@@ -43,23 +43,50 @@ export default function ProvenanceDemo({
     setActiveIndex(index);
   };
 
+  const toggleDetails = () => {
+    setAutoPlay(false);
+    setShowDetails((prev) => !prev);
+  };
+
   return (
     <div>
       <figure
-        className="demo"
+        className="demo-card"
+        data-tone={current.tone}
         aria-label="Interactive example: one image shown with four provenance states"
       >
-        <div className="media">
+        <div className="demo-top-bar">
+          <span>INTERACTIVE DEMO · CLICK PIN OR STATES</span>
+          <button
+            type="button"
+            className="demo-play-btn"
+            onClick={() => setAutoPlay((prev) => !prev)}
+            aria-pressed={autoPlay}
+          >
+            {autoPlay ? '⏸ Pause' : '▶ Auto-cycle'}
+          </button>
+        </div>
+
+        <div className="demo-media">
           <img src={imageUrl} alt={imageAlt} loading="eager" />
-          <div className="pin">
+          <button
+            type="button"
+            className="pin-btn"
+            onClick={toggleDetails}
+            aria-expanded={showDetails}
+            title="Click to toggle provenance details"
+          >
             <i className={`tone-${current.tone}`} aria-hidden="true">
               {current.icon}
             </i>
             <span>{current.pinLabel}</span>
-          </div>
+            <span className="pin-hint" aria-hidden="true">
+              {showDetails ? '▲' : '▼'}
+            </span>
+          </button>
         </div>
 
-        <div className="meta">{meta}</div>
+        <div className="demo-meta">{meta}</div>
 
         <div className="explain" aria-live="polite">
           <strong>{current.lead}</strong> {current.body}
@@ -73,10 +100,7 @@ export default function ProvenanceDemo({
             type="button"
             className="demo-action-btn"
             aria-expanded={showDetails}
-            onClick={() => {
-              setAutoPlay(false);
-              setShowDetails((prev) => !prev);
-            }}
+            onClick={toggleDetails}
           >
             {showDetails ? 'Hide details' : current.actionLabel}
           </button>
@@ -100,10 +124,12 @@ export default function ProvenanceDemo({
             <button
               key={state.id}
               type="button"
+              data-tone={state.tone}
               aria-pressed={idx === activeIndex}
               onClick={() => handleSelect(idx)}
             >
-              {state.buttonLabel}
+              <span aria-hidden="true">{state.icon}</span>
+              <span>{state.buttonLabel}</span>
             </button>
           ))}
         </div>
