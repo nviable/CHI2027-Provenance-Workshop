@@ -1,6 +1,7 @@
 # Beyond the Provenance Pin: CHI 2027 Workshop website
 
-Single-page static site (no build step). Live at `https://<github-username>.github.io/Provenance/`.
+Single-page static site (no build step). Live at `https://iceLearn.github.io/CHI2027-Provenance-Workshop
+`.
 
 ## Files
 - `index.html`: the whole site (text, styles and scripts in one file).
