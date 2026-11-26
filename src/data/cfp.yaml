@@ -34,6 +34,14 @@ templateNote:
     . Name a concrete provenance problem, the people affected, and at least one
     design or evaluation question.
 
+posterNote: >-
+  **Accompanying poster:** Each submission must also be accompanied by a poster
+  visually summarizing the core provenance problem, affected stakeholders, and
+  key design or evaluation question. Posters will be featured during the
+  workshop's gallery walk and small-group discussions (detailed poster
+  formatting and upload specifications will be shared with the submission
+  portal).
+
 topicsHeading: Topics include
 topics:
   - Communicating provenance across social feeds and verification views
@@ -61,7 +69,7 @@ dates:
   - label: Notification
     date: TBA
     tba: true
-  - label: Videos/slides and survey due
+  - label: Posters, videos/slides & survey due
     date: TBA
     tba: true
   - label: Workshop at CHI 2027

@@ -52,6 +52,12 @@ const isEmbedMode =
             {cfpData.templateNote.suffix}
           </p>
 
+          {
+            cfpData.posterNote ? (
+              <p set:html={renderInlineMarkdown(cfpData.posterNote)} />
+            ) : null
+          }
+
           <h3>{cfpData.topicsHeading}</h3>
           <ul>
             {cfpData.topics.map((topic) => <li>{topic}</li>)}

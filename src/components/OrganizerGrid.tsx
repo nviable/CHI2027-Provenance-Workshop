@@ -22,6 +22,33 @@ function OrganizerCard({ person, index }: { person: OrganizerPerson; index: numb
 
   return (
     <article className={`person${person.lead ? ' lead' : ''}`}>
+      {person.website ? (
+        <a
+          className="person-link"
+          href={person.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visit ${person.name}'s website`}
+          title={`Visit ${person.name}'s website`}
+        >
+          <svg
+            viewBox="0 0 20 20"
+            width="15"
+            height="15"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M11 4h5v5" />
+            <path d="M16 4l-7.5 7.5" />
+            <path d="M15 11.5v3.25A1.25 1.25 0 0 1 13.75 16h-8.5A1.25 1.25 0 0 1 4 14.75v-8.5A1.25 1.25 0 0 1 5.25 5H8.5" />
+          </svg>
+        </a>
+      ) : null}
+
       <div
         className="ph"
         style={{ backgroundColor: ringColor, '--ring-color': ringColor } as CSSProperties}
@@ -37,15 +64,7 @@ function OrganizerCard({ person, index }: { person: OrganizerPerson; index: numb
           <span aria-hidden="true">{getInitials(person.name)}</span>
         )}
       </div>
-      <h3>
-        {person.website ? (
-          <a href={person.website} target="_blank" rel="noopener noreferrer">
-            {person.name}
-          </a>
-        ) : (
-          person.name
-        )}
-      </h3>
+      <h3>{person.name}</h3>
       <div className="role">{person.role}</div>
       <div className="aff">{person.affiliation}</div>
     </article>

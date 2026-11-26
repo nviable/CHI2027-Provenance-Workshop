@@ -167,6 +167,7 @@ const cfpSchema = z.object({
     linkUrl: z.string().url(),
     suffix: z.string(),
   }),
+  posterNote: z.string().min(1).optional(),
   topicsHeading: z.string().min(1),
   topics: z.array(z.string().min(1)),
   reviewPolicy: z.string().min(1),
