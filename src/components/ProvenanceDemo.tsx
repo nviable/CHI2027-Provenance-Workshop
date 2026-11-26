@@ -88,34 +88,58 @@ export default function ProvenanceDemo({
 
         <div className="demo-meta">{meta}</div>
 
-        <div className="explain" aria-live="polite">
-          <strong>{current.lead}</strong> {current.body}
-          {current.emphasis ? (
-            <>
-              {' '}
-              <em>{current.emphasis}</em>
-            </>
-          ) : null}
-          <button
-            type="button"
-            className="demo-action-btn"
-            aria-expanded={showDetails}
-            onClick={toggleDetails}
-          >
-            {showDetails ? 'Hide details' : current.actionLabel}
-          </button>
+        {/* All slides share grid-area: 1/1 so height always matches the tallest state without jumping */}
+        <div className="explain-stack" aria-live="polite">
+          {states.map((state, idx) => {
+            const isActive = idx === activeIndex;
+            return (
+              <div
+                key={state.id}
+                className={`explain-slide${isActive ? ' is-active' : ''}`}
+                aria-hidden={!isActive}
+              >
+                <strong>{state.lead}</strong> {state.body}
+                {state.emphasis ? (
+                  <>
+                    {' '}
+                    <em>{state.emphasis}</em>
+                  </>
+                ) : null}
+                <button
+                  type="button"
+                  className="demo-action-btn"
+                  aria-expanded={isActive ? showDetails : undefined}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={toggleDetails}
+                >
+                  {showDetails ? 'Hide details' : state.actionLabel}
+                </button>
+              </div>
+            );
+          })}
         </div>
 
         {showDetails ? (
           <div className="demo-drawer">
-            <dl>
-              {current.details.map((row) => (
-                <div className="demo-drawer-row" key={row.label}>
-                  <dt>{row.label}</dt>
-                  <dd>{row.value}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="demo-drawer-stack">
+              {states.map((state, idx) => {
+                const isActive = idx === activeIndex;
+                return (
+                  <dl
+                    key={state.id}
+                    className={`demo-drawer-slide${isActive ? ' is-active' : ''}`}
+                    aria-hidden={!isActive}
+                  >
+                    {state.details.map((row) => (
+                      <div className="demo-drawer-row" key={row.label}>
+                        <dt>{row.label}</dt>
+                        <dd>{row.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                );
+              })}
+            </div>
           </div>
         ) : null}
 

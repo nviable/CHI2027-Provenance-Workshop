@@ -87,6 +87,7 @@ main {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -608,6 +609,7 @@ p {
 .page-spot-art {
   max-width: 300px;
   width: 100%;
+  height: auto;
   margin-left: auto;
   border-radius: var(--radius-md);
 }
@@ -799,10 +801,24 @@ section.band-soft {
   margin: 12px 0 6px;
 }
 
-.explain {
+.explain-stack {
+  display: grid;
   font-size: 14.5px;
-  min-height: 68px;
   color: var(--ink-2);
+}
+
+.explain-slide {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.explain-slide.is-active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .demo-action-btn {
@@ -843,10 +859,26 @@ section.band-soft {
   }
 }
 
-.demo-drawer dl {
+.demo-drawer-stack {
+  display: grid;
+}
+
+.demo-drawer-slide {
+  grid-area: 1 / 1;
   margin: 0;
   display: grid;
   gap: 6px;
+  align-content: start;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.demo-drawer-slide.is-active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .demo-drawer-row {
