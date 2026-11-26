@@ -1,0 +1,93 @@
+# =============================================================================
+# WORKSHOP ORGANIZERS
+#
+# Photos live in: public/assets/organizers/<photo>
+# If a photo file is missing or omitted, the site automatically renders
+# colored initials instead.
+# =============================================================================
+
+kicker: People
+heading: Organizers
+lede: >-
+  The team covers HCI, usable security, media forensics, provenance standards,
+  journalism, accessibility, and policy, across several world regions.
+
+people:
+  - name: Dilrukshi Gamage
+    affiliation: University of Colombo School of Computing, Sri Lanka
+    role: Lead organizer · Programme chair
+    committee: Programme committee
+    lead: true
+    photo: dilrukshi-gamage.jpg
+  - name: Amna Batool
+    affiliation: Keough School of Global Affairs, University of Notre Dame, USA
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: amna-batool.jpg
+  - name: Patrick Gage Kelley
+    affiliation: Independent Researcher, USA
+    role: Speaker committee
+    committee: Speaker committee
+    lead: false
+    photo: patrick-gage-kelley.jpg
+  - name: Madeleine I. G. Daepp
+    affiliation: Center for Democracy and Technology, USA
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: madeleine-i-g-daepp.jpg
+  - name: Lynnette Hui Xian Ng
+    affiliation: Carnegie Mellon University, USA
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: lynnette-hui-xian-ng.jpg
+  - name: Madhusudan Singh
+    affiliation: Penn State University, USA
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: madhusudan-singh.jpg
+  - name: Abdullah Hasan Safir
+    affiliation: University of Cambridge, UK
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: abdullah-hasan-safir.jpg
+  - name: Ersin Uzun
+    affiliation: Rochester Institute of Technology, USA
+    role: Speaker committee
+    committee: Speaker committee
+    lead: false
+    photo: ersin-uzun.jpg
+  - name: Saniat Javid Sohrawardi
+    affiliation: Rochester Institute of Technology, USA
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: saniat-javid-sohrawardi.jpg
+  - name: Shruti Agarwal
+    affiliation: Adobe, USA
+    role: Speaker committee
+    committee: Speaker committee
+    lead: false
+    photo: shruti-agarwal.jpg
+  - name: Viktor Kewenig
+    affiliation: Microsoft Research, UK
+    role: Programme committee
+    committee: Programme committee
+    lead: false
+    photo: viktor-kewenig.jpg
+  - name: Jessica Young
+    affiliation: Microsoft Research, USA
+    role: Organizer
+    committee: Organizing team
+    lead: false
+    photo: jessica-young.jpg
+  - name: Abigail Sellen
+    affiliation: Microsoft Research, UK
+    role: Speaker committee
+    committee: Speaker committee
+    lead: false
+    photo: abigail-sellen.jpg

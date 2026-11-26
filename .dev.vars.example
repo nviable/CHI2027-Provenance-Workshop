@@ -1,0 +1,16 @@
+# Local Cloudflare Worker runtime variables for `npm run dev` / `npm run preview`.
+# Copy this file to `.dev.vars` (git-ignored) to test email forwarding locally.
+# In production, set secrets in Cloudflare Dashboard (Workers -> Settings -> Variables and Secrets)
+# or via `npx wrangler secret put RESEND_API_KEY`.
+
+# --- Contact form email forwarding via Resend (https://resend.com) ---
+# RESEND_API_KEY=re_xxxxxxxxx
+# CONTACT_FROM_EMAIL=CHI 2027 Provenance Workshop <workshop@yourdomain.org>
+# Comma-separated list of organizer emails that receive every contact form message:
+# CONTACT_RECIPIENTS=organizer1@example.edu,organizer2@example.edu
+
+# --- Optional: Webhook notification (Slack / Discord / Teams / Zapier / Make) ---
+# CONTACT_WEBHOOK_URL=https://hooks.slack.com/services/...
+
+# --- Local testing mode (logs submissions to terminal without sending real email) ---
+CONTACT_DRY_RUN=true

@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubmissionSlot from '../components/SubmissionSlot.tsx';
+import { cfpData, renderInlineMarkdown, siteData } from '../lib/content';
+
+const isEmbedMode =
+  cfpData.submission.status === 'embed' && Boolean(cfpData.submission.embedUrl);
+---
+
+<Layout
+  title="Call for Participation"
+  description="Submit a 2–4 page position paper or 1-page practice statement to the Beyond the Provenance Pin workshop at ACM CHI 2027."
+  currentPath="/cfp"
+>
+  <header class="page-header">
+    <div class="wrap">
+      <div class="kicker">{cfpData.kicker}</div>
+      <h1>{cfpData.heading}</h1>
+      <p class="lede">{cfpData.lede}</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="cfp">
+        <div>
+          <h3>{cfpData.formatsHeading}</h3>
+          <ul>
+            {
+              cfpData.formats.map((format) => (
+                <li>
+                  <strong>{format.title}</strong>: {format.description}
+                </li>
+              ))
+            }
+          </ul>
+
+          <p>
+            {cfpData.templateNote.prefix}
+            <a href={cfpData.templateNote.linkUrl} target="_blank" rel="noopener noreferrer">
+              {cfpData.templateNote.linkText}
+            </a>
+            {cfpData.templateNote.suffix}
+          </p>
+
+          <h3>{cfpData.topicsHeading}</h3>
+          <ul>
+            {cfpData.topics.map((topic) => <li>{topic}</li>)}
+          </ul>
+
+          <p>
+            <span set:html={renderInlineMarkdown(cfpData.reviewPolicy)} />{' '}
+            <a href={siteData.conference.url} target="_blank" rel="noopener noreferrer">
+              {siteData.conference.name} ↗
+            </a>
+          </p>
+        </div>
+
+        <aside>
+          <div class="box">
+            <h3>{cfpData.datesHeading}</h3>
+            <ul class="dates">
+              {
+                cfpData.dates.map((item) => (
+                  <li>
+                    <span>{item.label}</span>
+                    <b class={item.tba ? 'tba' : undefined}>{item.date}</b>
+                  </li>
+                ))
+              }
+            </ul>
+            <p class="credit" style="margin:10px 0 0">{cfpData.datesTimezoneNote}</p>
+          </div>
+
+          {!isEmbedMode ? <SubmissionSlot submission={cfpData.submission} /> : null}
+        </aside>
+      </div>
+
+      {
+        isEmbedMode ? (
+          <div style="margin-top:44px">
+            <SubmissionSlot client:visible submission={cfpData.submission} />
+          </div>
+        ) : null
+      }
+    </div>
+  </section>
+
+  <section class="band" id="accepted-papers">
+    <div class="wrap">
+      <div class="kicker">Accepted work</div>
+      <h2>{cfpData.acceptedPapers.heading}</h2>
+      <p class="lede" style="margin-top:12px">{cfpData.acceptedPapers.intro}</p>
+
+      {
+        cfpData.acceptedPapers.published && cfpData.acceptedPapers.papers.length > 0 ? (
+          <ul class="refs" style="margin-top:24px">
+            {cfpData.acceptedPapers.papers.map((paper) => (
+              <li>
+                <b>{paper.title}</b> — {paper.authors}
+                {paper.type ? <span class="tba"> ({paper.type})</span> : null}
+                {paper.pdfUrl ? (
+                  <>
+                    {' '}
+                    ·{' '}
+                    <a href={paper.pdfUrl} target="_blank" rel="noopener noreferrer">
+                      PDF ↗
+                    </a>
+                  </>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="callout" style="margin-top:20px">
+            Notifications have not yet been sent. Check back after acceptance notifications to
+            browse accepted position papers and practice statements.
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Layout>

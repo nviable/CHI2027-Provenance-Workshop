@@ -1,0 +1,118 @@
+---
+interface Scenario {
+  id: 'social' | 'messaging' | 'news' | 'factcheck';
+  title: string;
+  description: string;
+}
+
+interface Props {
+  scenarios: Scenario[];
+}
+
+const { scenarios } = Astro.props;
+---
+
+<div class="grid g4 wild">
+  {
+    scenarios.map((scenario) => (
+      <article class="wcard">
+        <div class="screen">
+          {scenario.id === 'social' && (
+            <div class="phone">
+              <div class="ph-top">
+                <span class="av" />
+                travel_diaries
+              </div>
+              <div class="ph-img">
+                <svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+                  <circle cx="70" cy="22" r="9" fill="none" stroke="#1a1a1a" stroke-width="1.2" />
+                  <path
+                    d="M0 48 Q 30 34 50 44 T 100 40"
+                    fill="none"
+                    stroke="#1a1a1a"
+                    stroke-width="1.2"
+                  />
+                </svg>
+                <span class="tag" style="left:6px;bottom:6px">
+                  <i style="background:#616161">AI</i>Made with AI
+                </span>
+              </div>
+              <div style="color:#616161;margin-top:5px">♡ 2,481 · Sunset over the bay</div>
+            </div>
+          )}
+
+          {scenario.id === 'messaging' && (
+            <div class="phone" style="background:#f4f1ea">
+              <div class="ph-top">
+                <span class="av" />
+                Family group
+              </div>
+              <div class="bubble">
+                <div class="fw">↪ Forwarded many times</div>
+                <div class="ph-img" style="height:74px">
+                  <span class="tag" style="left:5px;top:5px">
+                    <i style="background:#616161">○</i>No credentials
+                  </span>
+                </div>
+                <div style="margin-top:4px">Is this real?? Flood at the station</div>
+              </div>
+            </div>
+          )}
+
+          {scenario.id === 'news' && (
+            <div class="phone">
+              <div class="ph-top" style="font-family:Georgia,serif;font-size:13px">
+                The Daily Ledger
+              </div>
+              <div class="ph-img" style="height:120px">
+                <span class="tag" style="right:5px;top:5px">
+                  <i style="background:#107c41">✓</i>cr
+                </span>
+                <div class="cr">
+                  <b>✓ Content Credentials</b>
+                  <div>
+                    <span>By</span>
+                    <span>Ledger Photos</span>
+                  </div>
+                  <div>
+                    <span>Source</span>
+                    <span>Camera</span>
+                  </div>
+                  <div>
+                    <span>Edits</span>
+                    <span>Crop</span>
+                  </div>
+                  <div>
+                    <span>AI</span>
+                    <span>None</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {scenario.id === 'factcheck' && (
+            <div class="phone">
+              <div class="ph-top">Verification view</div>
+              <div style="color:#616161">rally_video.mp4 · deadline in 20 min</div>
+              <div class="sig">
+                C2PA manifest <b style="color:#107c41">camera capture</b>
+              </div>
+              <div class="sig">
+                Watermark detector <b style="color:#c4314b">AI-generated</b>
+              </div>
+              <div class="sig">
+                Forensic model <b style="color:#a86b00">uncertain 0.54</b>
+              </div>
+              <div class="sig" style="border-style:dashed;font-weight:700;color:#c4314b">
+                ≠ Signals conflict: what next?
+              </div>
+            </div>
+          )}
+        </div>
+        <h3>{scenario.title}</h3>
+        <p>{scenario.description}</p>
+      </article>
+    ))
+  }
+</div>

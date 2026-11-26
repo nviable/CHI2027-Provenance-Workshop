@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chi2027-provenance-workshop",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-11-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Non-secret runtime defaults (override in Cloudflare Dashboard -> Settings -> Variables and Secrets)
+  "vars": {
+    "CONTACT_SUBJECT_PREFIX": "[CHI 2027 Provenance Workshop]"
+  }
+}

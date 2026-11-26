@@ -1,0 +1,100 @@
+# =============================================================================
+# CALL FOR PARTICIPATION, IMPORTANT DATES, SUBMISSION FORM & ACCEPTED PAPERS
+#
+# To activate submissions later, edit `submission` below:
+#   - status: "coming_soon"   -> shows the placeholder notice
+#   - status: "external_link" -> shows a button linking to `externalUrl`
+#   - status: "embed"         -> embeds `embedUrl` (Google Form, Tally, etc.)
+# =============================================================================
+
+kicker: Call for participation
+heading: Join us in Pittsburgh
+lede: >-
+  Content Credentials, watermarking, fingerprinting, and media forensics can
+  provide strong provenance evidence. But what should people actually see,
+  understand, and do with it? We invite researchers and practitioners from HCI,
+  usable security, forensics, journalism, standards, accessibility, policy, and
+  Global South communities.
+
+formatsHeading: We welcome
+formats:
+  - title: 2–4 page position papers
+    description: >-
+      design cases, empirical findings, deployment reflections, or provocations
+  - title: 1-page practice statements
+    description: >-
+      from journalists, fact-checkers, creators, platform and standards
+      practitioners
+
+templateNote:
+  prefix: "Use the "
+  linkText: ACM single-column format
+  linkUrl: https://www.acm.org/publications/taps/word-template-workflow
+  suffix: >-
+    . Name a concrete provenance problem, the people affected, and at least one
+    design or evaluation question.
+
+topicsHeading: Topics include
+topics:
+  - Communicating provenance across social feeds and verification views
+  - Representing AI generation, editing histories, source identity, and uncertainty
+  - Designing for missing credentials and conflicting signals
+  - Evaluating comprehension, calibrated trust, actionability, accessibility, and cross-cultural validity
+  - Privacy risks of provenance for journalists, documenters, and survivors
+  - Provenance on older devices, low bandwidth, and in messaging apps
+
+reviewPolicy: >-
+  At least two organizers review each submission. Accepted work is shared
+  **non-archivally** on this website with author permission (OSF optional). At
+  least one author of each accepted submission must attend, and all
+  participants must register for the workshop and at least one day of CHI 2027.
+
+datesHeading: Important dates
+datesTimezoneNote: All deadlines are Anywhere on Earth (AoE).
+dates:
+  - label: Website and call live
+    date: 17 Dec 2026
+    tba: false
+  - label: Submission deadline
+    date: TBA
+    tba: true
+  - label: Notification
+    date: TBA
+    tba: true
+  - label: Videos/slides and survey due
+    date: TBA
+    tba: true
+  - label: Workshop at CHI 2027
+    date: 10–14 May 2027 (day TBA)
+    tba: true
+  - label: Report published
+    date: within 6 weeks
+    tba: false
+
+# Switch `status` to "external_link" or "embed" when submissions open.
+submission:
+  status: coming_soon
+  heading: Submit your work
+  description: >-
+    Submissions open soon. Once the portal or form is ready, it will appear
+    right here.
+  buttonLabel: Submission link (coming soon)
+  externalUrl: ""
+  # For status: "embed", paste an iframe-ready URL (e.g., Google Forms ".../viewform?embedded=true" or Tally embed URL).
+  embedUrl: ""
+  embedTitle: CHI 2027 Provenance Workshop Submission Form
+  embedHeight: 760
+
+# Set `published: true` and list accepted papers after notification!
+acceptedPapers:
+  published: false
+  heading: Accepted papers & practice statements
+  intro: >-
+    Accepted submissions will be published here non-archivally with author
+    permission after notification.
+  papers: []
+  # Example entry:
+  # - title: "Designing for Missing Provenance in Encrypted Messaging"
+  #   authors: "Jane Doe, John Smith"
+  #   type: "Position paper"
+  #   pdfUrl: "/assets/papers/example.pdf"

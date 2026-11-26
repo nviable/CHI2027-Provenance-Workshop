@@ -1,0 +1,117 @@
+# =============================================================================
+# WORKSHOP PROGRAMME: SCHEDULE, INVITED SPEAKERS & HANDS-ON ACTIVITIES
+# Edit speaker names, times, or activity details here.
+# =============================================================================
+
+kicker: Programme
+heading: Schedule & activities
+lede: >-
+  Two 90-minute sessions with one break. About 60% of the time is hands-on, in
+  mixed groups of five or six, each led by an organizer.
+
+scheduleHeading: Workshop schedule
+schedule:
+  - time: "0:00–0:10"
+    title: 'Welcome and provocation: "provenance is not a label"'
+    output: Shared vocabulary
+    kind: session
+  - time: "0:10–0:30"
+    title: "Invited talk 1: infrastructure to interface"
+    badge: Speaker TBA
+    output: Technical constraints for design
+    kind: session
+  - time: "0:30–0:55"
+    title: Lightning talks (5 × 4 min), others on shared slides
+    output: Problem landscape
+    kind: session
+  - time: "0:55–1:15"
+    title: "Activity A: provenance journey mapping"
+    output: Stakeholder journey maps
+    kind: activity
+  - time: "1:15–1:30"
+    title: Break and gallery walk
+    output: Cross-group annotations
+    kind: break
+  - time: "1:30–1:50"
+    title: "Invited talk 2: the journalist and creator view"
+    badge: Speaker TBA
+    output: Real-world decision needs
+    kind: session
+  - time: "1:50–2:20"
+    title: "Activity B: disclosure design"
+    output: Interface patterns, failure modes
+    kind: activity
+  - time: "2:20–2:45"
+    title: "Activity C: human-centered evaluation matrix"
+    output: Measures, tasks, populations
+    kind: activity
+  - time: "2:45–3:00"
+    title: Prioritization (dot vote), commitments, closing
+    output: Research agenda, working groups
+    kind: session
+
+speakersHeading: Invited speakers
+speakersIntro: >-
+  Two invited talks frame the workshop from complementary perspectives:
+  provenance infrastructure and frontline newsroom/creator practice.
+speakers:
+  - slot: Invited talk 1 · 0:10–0:30
+    theme: Infrastructure to interface
+    name: Speaker TBA
+    affiliation: Technical constraints for design
+    tba: true
+  - slot: Invited talk 2 · 1:30–1:50
+    theme: The journalist and creator view
+    name: Speaker TBA
+    affiliation: Real-world decision needs
+    tba: true
+
+activitiesHeading: Three connected activities
+activitiesIntro: >-
+  Each activity feeds the next: needs and breakpoints become designs, and
+  designs become things to test.
+
+activities:
+  - letter: A
+    title: Map the journey
+    description: >-
+      Each group gets a scenario pack: one media item and its provenance trail
+      (e.g., a photo signed at capture, edited, then forwarded with metadata
+      stripped). Groups follow it through the six stages and note who handles
+      it, what is needed or added, and what is lost or exposed.
+    output: journey maps
+    visual: none
+  - letter: B
+    title: Design the disclosure
+    description: >-
+      With a constrained persona (a screen-reader user, a fact-checker on
+      deadline, a journalist protecting a source), groups design how each
+      breakpoint shows all four states.
+    output: interface patterns
+    visual: ladder
+    ladderRows:
+      - Glance
+      - Summary
+      - History
+      - Verify
+  - letter: C
+    title: Evaluate
+    description: >-
+      Groups turn designs into evaluation plans: measures, comparison
+      conditions, populations, and what counts as *calibrated* rather than
+      maximal trust.
+    output: evaluation matrix
+    visual: dimensions
+    dimensions:
+      - label: Noticeability
+        crossCutting: false
+      - label: Comprehension
+        crossCutting: false
+      - label: Calibrated trust
+        crossCutting: false
+      - label: Actionability
+        crossCutting: false
+      - label: Accessibility (every cell)
+        crossCutting: true
+      - label: Cross-cultural validity (every cell)
+        crossCutting: true

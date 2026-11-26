@@ -1,0 +1,33 @@
+# =============================================================================
+# CONTACT PAGE CONTENT
+# Note: Actual forwarding email addresses are kept in Cloudflare Worker
+# environment variables (CONTACT_RECIPIENTS) so organizer addresses aren't
+# exposed to spammers in public source code.
+# =============================================================================
+
+kicker: Contact
+heading: Get in touch with the organizers
+lede: >-
+  Questions about submissions, accessibility accommodations, remote
+  participation, or invited talks? Send a message below and our Cloudflare
+  Worker will forward it to the organizing committee.
+
+topics:
+  - Submissions & Call for Participation
+  - Accessibility & accommodations
+  - Remote participation
+  - Invited talks & media
+  - Website & general inquiry
+
+sidebar:
+  forwardingHeading: How messages are routed
+  forwardingBody: >-
+    Submissions through this form are delivered directly to the workshop
+    organizing committee so the right chair can respond quickly. We typically
+    reply within 2–3 business days.
+  directHeading: Direct contact
+  directBody: >-
+    Prefer email? You can also reach the lead organizer directly.
+  privacyNote: >-
+    Your message and email address are used only to respond to your workshop
+    inquiry and are not added to any mailing list.

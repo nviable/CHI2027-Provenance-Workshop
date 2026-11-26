@@ -1,0 +1,37 @@
+{
+  "name": "chi2027-provenance-workshop",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Beyond the Provenance Pin — CHI 2027 Workshop website (Astro + React on Cloudflare Workers)",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro build && astro preview",
+    "deploy": "astro build && wrangler deploy",
+    "cf-typegen": "wrangler types",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.4.9",
+    "@astrojs/react": "^7.1.9",
+    "astro": "^7.4.13",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "yaml": "^2.7.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.8.0",
+    "wrangler": "^4.168.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261123.1": true
+  }
+}

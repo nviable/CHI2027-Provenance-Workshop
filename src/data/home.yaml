@@ -1,0 +1,247 @@
+# =============================================================================
+# HOME PAGE CONTENT (Overview, In the Wild, Research Questions & Outcomes)
+# Edit text here without touching any HTML, CSS, or React code.
+# =============================================================================
+
+overview:
+  kicker: Overview
+  heading: Provenance has a human-interface problem
+  paragraphs:
+    - >-
+      Content provenance infrastructure (signed C2PA Content Credentials, JPEG
+      Trust, capture attestation, IPTC metadata, watermarks such as SynthID)
+      can record how media was made and changed. A valid record still does not
+      tell us whether people **notice** the signal, **understand** it,
+      **trust** its source, know **what to do next**, or can use it across
+      cultures, abilities, platforms, and high-stakes contexts.
+    - >-
+      Technical venues such as WMARK, APAI, GenProCC, and ATTRIB have advanced
+      the robustness of provenance. This workshop builds the bridge across the
+      **last mile**: from provenance infrastructure to experiences that are
+      understandable, actionable, and equitable.
+
+demo:
+  imageUrl: >-
+    https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Pittsburgh_skyline_from_West_End_Overlook%2C_2021-11-17%2C_03.jpg/960px-Pittsburgh_skyline_from_West_End_Overlook%2C_2021-11-17%2C_03.jpg
+  imageAlt: Pittsburgh skyline with yellow bridges over the river
+  meta: "@city_newsdesk · Morning over the rivers"
+  caption: "Try it: the same image in four provenance states. How should each one look?"
+  states:
+    - id: valid
+      buttonLabel: valid
+      pinLabel: Content Credentials
+      icon: "✓"
+      tone: valid
+      lead: Valid.
+      body: >-
+        Signed at capture by a known news organization. Cropped and
+        color-corrected, with nothing added or removed.
+      actionLabel: View history
+      details:
+        - label: Captured by
+          value: City Newsdesk · Mirrorless camera
+        - label: Signed with
+          value: C2PA Content Credentials (verified)
+        - label: Edits recorded
+          value: Crop and tone adjustment
+        - label: Generative AI
+          value: None detected or declared
+    - id: partial
+      buttonLabel: partial
+      pinLabel: Partly verified
+      icon: "◐"
+      tone: partial
+      lead: Partial.
+      body: >-
+        Signed by an unknown signer, and part of the edit history was lost when
+        the file was re-encoded.
+      actionLabel: Inspect gaps
+      details:
+        - label: Signer identity
+          value: Unrecognized self-signed certificate
+        - label: Chain integrity
+          value: Broken after social re-encoding
+        - label: Missing span
+          value: Original capture metadata unavailable
+    - id: missing
+      buttonLabel: missing
+      pinLabel: No provenance info
+      icon: "○"
+      tone: missing
+      lead: Missing.
+      body: >-
+        No credentials found. They may have been stripped when the image was
+        shared.
+      emphasis: This does not mean it is fake.
+      actionLabel: Why might this be missing?
+      details:
+        - label: Common causes
+          value: Messaging apps, screenshots, older cameras, or platform stripping
+        - label: Design rule
+          value: Absence of evidence must not read as evidence of fabrication
+    - id: conflicting
+      buttonLabel: conflicting
+      pinLabel: Signals disagree
+      icon: "≠"
+      tone: conflict
+      lead: Conflicting.
+      body: >-
+        The credentials say "camera capture", but a watermark detector flags AI
+        generation.
+      actionLabel: See both signals
+      details:
+        - label: C2PA manifest
+          value: Camera capture (valid signature)
+        - label: Watermark detector
+          value: Flagged as AI-generated
+        - label: Open question
+          value: Which signal should users trust, and what should they do next?
+
+pipeline:
+  ariaLabel: >-
+    Six-stage provenance pipeline. Infrastructure: create, attest, distribute.
+    Last mile: surface, interpret, act.
+  leftHeading: Infrastructure · technical venues
+  rightHeading: Last mile · this workshop
+  stages:
+    - number: 1
+      title: Create
+      description: Can be never signed
+      lastMile: false
+    - number: 2
+      title: Attest
+      description: Unknown signer; detectors disagree
+      lastMile: false
+    - number: 3
+      title: Distribute
+      description: Stripped, re-encoded, watermark removed
+      lastMile: false
+    - number: 4
+      title: Surface
+      description: Does the person notice the cue?
+      lastMile: true
+    - number: 5
+      title: Interpret
+      description: What do they think it claims?
+      lastMile: true
+    - number: 6
+      title: Act
+      description: Share, verify, report, or ignore?
+      lastMile: true
+  summaryPrefix: >-
+    Problems upstream reach the person at the end of the pipeline. They decide
+    whether someone sees provenance that is
+
+findings:
+  - title: Signals shift beliefs more than behavior
+    body: >-
+      Label design changes whether people believe content is AI-generated, but
+      has limited effects on engagement. Harm-based labels change sharing;
+      process labels barely do.
+  - title: Meaning depends on wording
+    body: >-
+      "AI-generated" reads as a claim about process; "manipulated" implies
+      intent to deceive. Effects vary across platform cultures and messaging
+      apps.
+  - title: Transparency has side effects
+    body: >-
+      Incomplete provenance lowers trust in authentic media, and labeling only
+      some fakes leaves people off guard for unlabeled ones.
+  - title: Signals are fallible and often absent
+    body: >-
+      Watermarks can be removed and metadata is routinely stripped. Missing
+      provenance must not read as "this is fake".
+
+gallery:
+  kicker: Provenance in the wild
+  heading: Where people meet provenance
+  lede: >-
+    The same evidence shows up in very different moments. These sketches mirror
+    the scenario packs participants will work with.
+  scenarios:
+    - id: social
+      title: Social feed
+      description: >-
+        A small "Made with AI" tag at a glance. Do people notice it while
+        scrolling? What does "made" mean?
+    - id: messaging
+      title: Messaging app
+      description: >-
+        Metadata stripped on forward, on an older phone with costly data.
+        Missing should not mean fake.
+    - id: news
+      title: News article
+      description: >-
+        Full Content Credentials on demand. Does a valid signature lead to
+        calibrated trust, or blind trust?
+    - id: factcheck
+      title: Fact-checker desk
+      description: >-
+        Expert tools with conflicting signals under time pressure. How should
+        disagreement be shown?
+  figures:
+    - src: /assets/fig1-pipeline.png
+      label: Figure 1.
+      caption: >-
+        The provenance pipeline. Technical venues focus on stages 1–3; this
+        workshop on the last mile (4–6).
+      alt: >-
+        Figure 1: the provenance pipeline from create, attest and distribute
+        (infrastructure) to surface, interpret and act (last mile), with valid,
+        partial, missing and conflicting states.
+    - src: /assets/fig2-activities.png
+      label: Figure 2.
+      caption: >-
+        How the three workshop activities connect, from journey maps to an
+        evaluation matrix.
+      alt: >-
+        Figure 2: three activities. A map the journey, B design the disclosure
+        across four states and four levels, C evaluate on six dimensions.
+
+questions:
+  kicker: Goals
+  heading: Five research questions
+  lede: >-
+    We treat **provenance as interaction**: not metadata attached to a file,
+    but a series of moments in which a person meets a cue, forms a belief about
+    what it claims and who stands behind it, and decides what to do.
+  items:
+    - id: RQ1
+      name: Needs
+      question: >-
+        What is needed from provenance beyond a binary AI/non-AI disclosure,
+        and at which interaction moments?
+    - id: RQ2
+      name: Disclosure
+      question: >-
+        What should be surfaced, when, and in what form? When is progressive
+        disclosure better than always-on labels or on-demand verification?
+    - id: RQ3
+      name: Trust
+      question: >-
+        How do source identity, confidence, edits, missing credentials, and
+        conflicting signals affect trust calibration and action?
+    - id: RQ4
+      name: Plurality
+      question: >-
+        How should interfaces adapt to role and expertise, abilities and access
+        needs, and cultural, linguistic, and infrastructural context, including
+        the Global South?
+    - id: RQ5
+      name: Evaluation
+      question: >-
+        What human-centered metrics and study designs should complement
+        robustness benchmarks?
+  privacyCallout:
+    lead: "Across all five: the privacy cost of provenance."
+    body: >-
+      Credentials can reveal a creator's identity, location, device, or editing
+      history, which may deter journalists, human rights documenters, and
+      survivors of image-based abuse from using them.
+  outcomesHeading: What we will produce
+  outcomes:
+    - A taxonomy of user needs and provenance interaction moments
+    - Design principles, including absence and conflict states
+    - A human-centered evaluation matrix
+    - A research agenda linking HCI to C2PA, watermarking, and forensics
+    - A public report and resource repository

@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { programmeData, renderInlineMarkdown } from '../lib/content';
+---
+
+<Layout
+  title="Programme"
+  description="Schedule, invited speakers, and three connected hands-on activities for the CHI 2027 Beyond the Provenance Pin workshop."
+  currentPath="/programme"
+>
+  <header class="page-header">
+    <div class="wrap">
+      <div class="kicker">{programmeData.kicker}</div>
+      <h1>{programmeData.heading}</h1>
+      <p class="lede">{programmeData.lede}</p>
+    </div>
+  </header>
+
+  <section id="schedule">
+    <div class="wrap">
+      <div class="kicker">Timetable</div>
+      <h2>{programmeData.scheduleHeading}</h2>
+
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Activity</th>
+            <th class="o">Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            programmeData.schedule.map((row) => (
+              <tr class={row.kind === 'activity' ? 'act' : row.kind === 'break' ? 'brk' : undefined}>
+                <td class="t">{row.time}</td>
+                <td>
+                  {row.title}
+                  {row.badge ? <span class="kind">{row.badge}</span> : null}
+                </td>
+                <td class="o">{row.output}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="speakers" class="band">
+    <div class="wrap">
+      <div class="kicker">Perspectives</div>
+      <h2>{programmeData.speakersHeading}</h2>
+      <p class="lede" style="margin-top:12px">{programmeData.speakersIntro}</p>
+
+      <div class="speaker-cards">
+        {
+          programmeData.speakers.map((speaker) => (
+            <article class={`speaker-card${speaker.tba ? ' is-tba' : ''}`}>
+              <div class="speaker-slot">{speaker.slot}</div>
+              <h3>{speaker.theme}</h3>
+              <p class="speaker-meta">
+                <strong>
+                  {speaker.url ? (
+                    <a href={speaker.url} target="_blank" rel="noopener noreferrer">
+                      {speaker.name}
+                    </a>
+                  ) : (
+                    speaker.name
+                  )}
+                </strong>{' '}
+                · {speaker.affiliation}
+              </p>
+              {speaker.bio ? (
+                <p style="margin-top:10px;margin-bottom:0;color:var(--ink-2)">{speaker.bio}</p>
+              ) : null}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="wrap">
+      <div class="kicker">Hands-on studio</div>
+      <h2>{programmeData.activitiesHeading}</h2>
+      <p class="lede" style="margin-top:12px">{programmeData.activitiesIntro}</p>
+
+      <div class="acts">
+        {
+          programmeData.activities.map((activity, idx) => (
+            <>
+              {idx > 0 ? (
+                <div class="arrow" aria-hidden="true">
+                  →
+                </div>
+              ) : null}
+              <article class="act-card">
+                <div class="letter">{activity.letter}</div>
+                <h3>{activity.title}</h3>
+                <p set:html={renderInlineMarkdown(activity.description)} />
+
+                {activity.visual === 'ladder' && activity.ladderRows ? (
+                  <div class="ladder" aria-hidden="true">
+                    <span />
+                    <span class="top" style="color:var(--valid)">valid</span>
+                    <span class="top" style="color:var(--partial)">partial</span>
+                    <span class="top" style="color:var(--missing)">missing</span>
+                    <span class="top" style="color:var(--conflict)">conflict</span>
+                    {activity.ladderRows.map((rowLabel) => (
+                      <>
+                        <span class="h">{rowLabel}</span>
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                      </>
+                    ))}
+                  </div>
+                ) : null}
+
+                {activity.visual === 'dimensions' && activity.dimensions ? (
+                  <ul class="dims">
+                    {activity.dimensions.map((dim) => (
+                      <li class={dim.crossCutting ? 'all' : undefined}>{dim.label}</li>
+                    ))}
+                  </ul>
+                ) : null}
+
+                <div class="out">{activity.output}</div>
+              </article>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

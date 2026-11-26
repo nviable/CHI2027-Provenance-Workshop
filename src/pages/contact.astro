@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.tsx';
+import { contactData, siteData } from '../lib/content';
+---
+
+<Layout
+  title="Contact"
+  description="Contact the organizing committee of Beyond the Provenance Pin (ACM CHI 2027 workshop)."
+  currentPath="/contact"
+>
+  <header class="page-header">
+    <div class="wrap">
+      <div class="kicker">{contactData.kicker}</div>
+      <h1>{contactData.heading}</h1>
+      <p class="lede">{contactData.lede}</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="contact-layout">
+        <ContactForm
+          client:load
+          topics={contactData.topics}
+          fallbackEmail={siteData.leadContact.email}
+        />
+
+        <aside>
+          <div class="box">
+            <h3>{contactData.sidebar.forwardingHeading}</h3>
+            <p style="color:var(--ink-2);margin-bottom:0">{contactData.sidebar.forwardingBody}</p>
+          </div>
+
+          <div class="box">
+            <h3>{contactData.sidebar.directHeading}</h3>
+            <p style="color:var(--ink-2)">{contactData.sidebar.directBody}</p>
+            <p style="margin-bottom:0">
+              <strong>{siteData.leadContact.name}</strong> ({siteData.leadContact.role})
+              <br />
+              <a href={`mailto:${siteData.leadContact.email}`}>{siteData.leadContact.email}</a>
+            </p>
+          </div>
+
+          <div class="box submit-box">
+            <h3>Privacy</h3>
+            <p style="margin-bottom:0;font-size:14.5px">{contactData.sidebar.privacyNote}</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>

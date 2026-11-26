@@ -1,0 +1,58 @@
+# =============================================================================
+# SITE-WIDE SETTINGS
+# Edit this file to update the workshop title, links, key facts, or footer.
+# =============================================================================
+
+title: Beyond the Provenance Pin
+shortTitle: Provenance
+eventBadge: CHI 2027 Workshop
+tagline: >-
+  Human-centered design of content provenance as interaction: what people
+  should see, understand, and do with provenance evidence.
+description: >-
+  CHI 2027 workshop on human-centered design of content provenance as
+  interaction: what people should see, understand, and do with provenance
+  evidence.
+ogImage: /assets/fig1-pipeline.png
+
+conference:
+  name: ACM CHI 2027
+  url: https://chi2027.acm.org/
+  location: Pittsburgh, USA
+  dates: 10–14 May 2027
+
+# Replace `url` with "/assets/proposal.pdf" once you upload the PDF to public/assets/.
+proposalPdf:
+  label: Read the proposal
+  url: ""
+  comingSoonNote: Proposal PDF coming soon
+
+facts:
+  - label: Where
+    value: ACM CHI 2027, Pittsburgh, USA
+  - label: When
+    value: 10–14 May 2027
+    note: day TBA
+  - label: Format
+    value: In person · 25–40 participants
+  - label: Submissions
+    value: Position papers & practice statements
+
+leadContact:
+  name: Dilrukshi Gamage
+  role: Lead organizer
+  email: dilrukshi.gamage@gmail.com
+
+navigation:
+  - label: Overview
+    href: /
+  - label: Call for Participation
+    href: /cfp
+  - label: Programme
+    href: /programme
+  - label: Organizers
+    href: /organizers
+  - label: Venue & Resources
+    href: /venue-resources
+  - label: Contact
+    href: /contact

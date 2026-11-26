@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import OrganizerGrid from '../components/OrganizerGrid.tsx';
+import { organizersData } from '../lib/content';
+---
+
+<Layout
+  title="Organizers"
+  description="Meet the interdisciplinary organizing team behind Beyond the Provenance Pin at ACM CHI 2027."
+  currentPath="/organizers"
+>
+  <header class="page-header">
+    <div class="wrap">
+      <div class="kicker">{organizersData.kicker}</div>
+      <h1>{organizersData.heading}</h1>
+      <p class="lede">{organizersData.lede}</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <OrganizerGrid client:load people={organizersData.people} />
+    </div>
+  </section>
+
+  <div class="next-step-band">
+    <div class="wrap next-step-inner">
+      <div>
+        <h2>Questions for the committee?</h2>
+        <p>Reach all workshop organizers at once via our contact form.</p>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="/contact">Contact the organizers</a>
+      </div>
+    </div>
+  </div>
+</Layout>

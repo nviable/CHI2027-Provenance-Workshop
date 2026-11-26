@@ -1,0 +1,79 @@
+# =============================================================================
+# VENUE, ACCESSIBILITY, READING LIST & RELATED VENUES
+# =============================================================================
+
+kicker: Venue & Resources
+heading: Pittsburgh & reading list
+lede: >-
+  Practical details for attending in Pittsburgh or contributing remotely,
+  accessibility commitments, and foundational readings on content provenance.
+
+venue:
+  kicker: Venue
+  heading: Pittsburgh, the city of bridges
+  photoUrl: >-
+    https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Pittsburgh_skyline_from_West_End_Overlook%2C_2021-11-17%2C_03.jpg/1920px-Pittsburgh_skyline_from_West_End_Overlook%2C_2021-11-17%2C_03.jpg
+  photoAlt: Pittsburgh skyline and its yellow bridges seen from the West End Overlook
+  photoCredit: >-
+    Photo: Pittsburgh skyline from West End Overlook, by Cbaile19, CC0, via
+    Wikimedia Commons.
+  paragraphs:
+    - >-
+      The workshop is part of ACM CHI 2027, 10–14 May 2027. A fitting place to
+      build bridges between provenance infrastructure and the people who meet
+      it.
+    - >-
+      Can't travel? Accepted authors can contribute before CHI with short
+      videos or slides, and everyone is welcome at the open online synthesis
+      session afterwards.
+  accessibilityHeading: Accessibility
+  accessibilityItems:
+    - Templates are screen-readable and shared in advance.
+    - Visual examples come with text descriptions.
+    - Videos are captioned.
+    - Meaning is never carried by color alone.
+    - Contribute verbally, in writing, or on shared boards.
+    - We ask about access needs at registration.
+
+resources:
+  kicker: Resources
+  heading: Reading list
+  readings:
+    - title: >-
+        Labeling Synthetic Content: User Perceptions of Label Designs for
+        AI-Generated Content on Social Media.
+      citation: Gamage et al., CHI 2025.
+    - title: >-
+        Examining the Impact of Provenance-Enabled Media on Trust and Accuracy
+        Perceptions.
+      citation: Feng et al., CSCW 2023.
+    - title: Labeling AI-generated media online.
+      citation: Wittenberg et al., PNAS Nexus 2025.
+    - title: >-
+        Beyond the Naked Eye: How People Perceive, Detect, and Respond to
+        AI-Manipulated Videos.
+      citation: Fatima, Wu & Uzun, CHI 2026.
+    - title: >-
+        "That's another doom I haven't thought about": AI Labels as a Safeguard
+        Against Image-Based Misinformation.
+      citation: Höltervennhoff et al., CHI 2026.
+    - title: Reducing Risks Posed by Synthetic Content (NIST AI 100-4).
+      citation: NIST, 2024.
+    - title: Designing Credibility Tools to Combat Mis/Disinformation.
+      citation: Gamage et al., CHI 2022 workshop.
+  relatedVenuesHeading: Related venues
+  relatedVenues:
+    - label: CHI 2027
+      url: https://chi2027.acm.org/
+    - label: WMARK @ ICLR'25
+      url: https://iclr.cc/virtual/2025/events/workshop
+    - label: APAI @ ICCV'25
+      url: https://sites.google.com/berkeley.edu/apai-iccv2025/
+    - label: APAI @ NeurIPS'26
+      url: https://apai-neurips2026.github.io/
+    - label: GenProCC @ NeurIPS'25
+      url: https://genprocc.github.io/
+    - label: ATTRIB @ NeurIPS'26
+      url: https://attrib-workshop.cc/
+    - label: Content Credentials
+      url: https://contentcredentials.org/about/

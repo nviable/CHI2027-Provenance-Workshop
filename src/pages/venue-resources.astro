@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteData, venueResourcesData } from '../lib/content';
+
+const readings = venueResourcesData.resources.readings;
+const splitIndex = Math.ceil(readings.length / 2);
+const leftReadings = readings.slice(0, splitIndex);
+const rightReadings = readings.slice(splitIndex);
+---
+
+<Layout
+  title="Venue & Resources"
+  description="Pittsburgh venue details, accessibility commitments, reading list, and related provenance venues for ACM CHI 2027."
+  currentPath="/venue-resources"
+>
+  <header class="page-header">
+    <div class="wrap">
+      <div class="kicker">{venueResourcesData.kicker}</div>
+      <h1>{venueResourcesData.heading}</h1>
+      <p class="lede">{venueResourcesData.lede}</p>
+    </div>
+  </header>
+
+  <section id="venue">
+    <div class="wrap">
+      <div
+        class="venue-photo"
+        role="img"
+        aria-label={venueResourcesData.venue.photoAlt}
+        style={`background-image:url("${venueResourcesData.venue.photoUrl}")`}
+      />
+
+      <div class="grid g2" style="gap:52px;align-items:start">
+        <div>
+          <div class="kicker">{venueResourcesData.venue.kicker}</div>
+          <h2>{venueResourcesData.venue.heading}</h2>
+          <div style="margin-top:14px">
+            {venueResourcesData.venue.paragraphs.map((text) => <p>{text}</p>)}
+          </div>
+          <p>
+            Conference website:{' '}
+            <a href={siteData.conference.url} target="_blank" rel="noopener noreferrer">
+              {siteData.conference.name} ↗
+            </a>
+          </p>
+          <p class="credit">{venueResourcesData.venue.photoCredit}</p>
+        </div>
+
+        <div class="box">
+          <h3>{venueResourcesData.venue.accessibilityHeading}</h3>
+          <ul style="padding-left:20px;margin:10px 0 0;color:var(--ink-2)">
+            {
+              venueResourcesData.venue.accessibilityItems.map((item) => (
+                <li style="margin-bottom:6px">{item}</li>
+              ))
+            }
+          </ul>
+          <p style="margin:16px 0 0;font-size:14.5px">
+            Need a specific accommodation? <a href="/contact">Let us know in advance</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="band">
+    <div class="wrap">
+      <div class="kicker">{venueResourcesData.resources.kicker}</div>
+      <h2>{venueResourcesData.resources.heading}</h2>
+
+      <div class="grid g2" style="margin-top:16px;align-items:start;gap:48px">
+        <ul class="refs">
+          {
+            leftReadings.map((ref) => (
+              <li>
+                <b>
+                  {ref.url ? (
+                    <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                      {ref.title}
+                    </a>
+                  ) : (
+                    ref.title
+                  )}
+                </b>{' '}
+                {ref.citation}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div>
+          <ul class="refs">
+            {
+              rightReadings.map((ref) => (
+                <li>
+                  <b>
+                    {ref.url ? (
+                      <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                        {ref.title}
+                      </a>
+                    ) : (
+                      ref.title
+                    )}
+                  </b>{' '}
+                  {ref.citation}
+                </li>
+              ))
+            }
+          </ul>
+
+          <h3 style="margin:28px 0 4px">{venueResourcesData.resources.relatedVenuesHeading}</h3>
+          <div class="venues">
+            {
+              venueResourcesData.resources.relatedVenues.map((venue) => (
+                <a href={venue.url} target="_blank" rel="noopener noreferrer">
+                  {venue.label} ↗
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
